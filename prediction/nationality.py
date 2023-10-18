@@ -11,7 +11,7 @@ def nationality_prediction(img_name):
     model = load_model("./model/nationalityClassificationModel.h5", compile=False)
 
     # Replace this with the path to your image
-    img = image.load_img(f"./img/{img_name}.jpg", target_size=(64, 64))
+    img = image.load_img(f"./img/{img_name}.jpg", target_size=(224, 224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
 
