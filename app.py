@@ -43,4 +43,5 @@ def hello():
         "nationality": nationality_prediction_result,
         "age": age_prediction_result,
     }
+    print(response_data)
     return jsonify(response_data)

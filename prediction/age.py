@@ -70,12 +70,12 @@ def total_age_prediction(img_name):
     predictions = model.predict(img_array)
     print(predictions)
 
-    prediction_class = predictions.argmax(axis=-1)
+    index = np.argmax(predictions)
     # ------------
     # ------------class: 0(1-20) / 1(21-35) / 2(36-60) / 3(61 ~)
-    if prediction_class == 0 or prediction_class == 1:
+    if index >= 1 and index <= 3:
         return "청년"
-    elif prediction_class == 2:
+    elif index == 4:
         return "중년"
-    elif prediction_class == 3:
+    else:
         return "노년"
