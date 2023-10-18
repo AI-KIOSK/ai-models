@@ -19,9 +19,9 @@ def nationality_prediction(img_name):
     predictions = model.predict(img_array)
     print(predictions)
 
-    prediction_class = predictions.argmax(axis=-1)
-    # ------------
-    if predictions >= 0.5:
+    index = np.argmax(predictions)
+    print(index)
+    if index == 0:
         return "EASTERN"
-    else:
+    elif index == 1:
         return "WESTERN"
