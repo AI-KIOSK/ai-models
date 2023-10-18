@@ -3,7 +3,11 @@ from io import BytesIO
 from datetime import datetime
 import base64
 from PIL import Image
-from prediction.age import eastern_age_prediction, western_age_prediction
+from prediction.age import (
+    eastern_age_prediction,
+    total_age_prediction,
+    western_age_prediction,
+)
 
 from prediction.gender import genger_prediction
 from prediction.nationality import nationality_prediction
@@ -28,10 +32,11 @@ def hello():
     gender_prediction_result = genger_prediction(img_name=time_stamp)
     nationality_prediction_result = nationality_prediction(img_name=time_stamp)
 
-    if nationality_prediction_result == "EASTERN":
-        age_prediction_result = eastern_age_prediction(img_name=time_stamp)
-    else:
-        age_prediction_result = western_age_prediction(img_name=time_stamp)
+    age_prediction_result = total_age_prediction(img_name=time_stamp)
+    # if nationality_prediction_result == "EASTERN":
+    #     age_prediction_result = eastern_age_prediction(img_name=time_stamp)
+    # else:
+    #     age_prediction_result = western_age_prediction(img_name=time_stamp)
 
     response_data = {
         "gender": gender_prediction_result,
