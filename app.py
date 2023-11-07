@@ -9,7 +9,7 @@ from prediction.age import (
     western_age_prediction,
 )
 
-from prediction.gender import genger_prediction
+from prediction.gender import genderV2, genger_prediction
 from prediction.nationality import nationality_prediction
 
 
@@ -29,7 +29,10 @@ def hello():
     time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     save_base64_to_img(request_img, time_stamp)
 
-    gender_prediction_result = genger_prediction(img_name=time_stamp)
+    # gender_prediction_result = genger_prediction(img_name=time_stamp)
+    gender_prediction_result = genderV2(time_stamp)
+
+    print(gender_prediction_result)
     nationality_prediction_result = nationality_prediction(img_name=time_stamp)
 
     age_prediction_result = total_age_prediction(img_name=time_stamp)
